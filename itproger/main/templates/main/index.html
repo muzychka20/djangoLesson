@@ -1,0 +1,33 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Main page{% endblock %}
+
+{% block content %}
+  <div class="features">
+    <h1>{{ title }}</h1>
+
+    {% for el in values %}
+
+      {% if el == 'hello' %}
+        <p>{{ el }}</p>
+      {% endif %}
+
+      {% filter upper %}
+        <p>{{ el }}</p>
+      {% endfilter %}
+
+    {% endfor %}
+
+    {{ obj }}
+
+    {{ obj.age }}
+
+    {% for el in obj %}
+      <p>{{ el|upper }}</p>
+    {% endfor %}
+
+    <br>
+    <button class="btn btn-warning">To About</button>
+  </div>
+  {% include 'main/test.html' %}
+{% endblock %}
